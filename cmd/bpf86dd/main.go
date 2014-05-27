@@ -1,3 +1,5 @@
+// +build darwin dragonfly freebsd netbsd openbsd
+
 package main
 
 import (
@@ -95,7 +97,7 @@ func prepareBPF(fd int, name string) (int, error) {
 
 func main() {
 	if os.Getuid() != 0 {
-		log.Fatal("must be run with administrator privileges")
+		log.Fatal("must be run with administrator privilege")
 	}
 
 	f, err := bpfFile()
